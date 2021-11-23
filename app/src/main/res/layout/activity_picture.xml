@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PictureActivity">
+
+    <ImageView
+        android:id="@+id/picture_image_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/picture_author_label"
+        tools:ignore="ContentDescription"/>
+
+    <TextView
+        android:id="@+id/picture_author_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/picture_share_button"
+        app:layout_constraintBottom_toBottomOf="@id/picture_share_button"
+        app:layout_constraintTop_toTopOf="@id/picture_share_button"
+        android:text="@string/picture_author_label"
+        android:textSize="@dimen/description_picture_text_size"
+        android:textAlignment="textStart"
+        android:layout_marginStart="10dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/picture_share_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="10dp"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+        android:text="@string/share_text_button"
+        app:icon="@drawable/ic_sharp_share_24"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

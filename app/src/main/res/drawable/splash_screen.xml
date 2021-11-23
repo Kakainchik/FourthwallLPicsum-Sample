@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:opacity="opaque">
+    <!--Some loading icon page-->
+    <item android:drawable="@color/white"/>
+    <item android:drawable="@drawable/ic_round_android_24"
+        android:gravity="center"
+        android:height="64dp"
+        android:width="64dp"/>
+</layer-list>
