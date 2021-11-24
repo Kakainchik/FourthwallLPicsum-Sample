@@ -11,11 +11,14 @@ import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 import kz.kakainchik.fourthwalllpicsum.entities.Picture
 import kz.kakainchik.fourthwalllpicsum.entities.PictureResponse
+import javax.inject.Inject
+import javax.inject.Singleton
 
 /**
  * The service that allows to sent requests to `Lorem Picsum` API.
  */
-class PictureApi(private val client: HttpClient) {
+@Singleton
+class PictureApi @Inject constructor(private val client: HttpClient) {
     /**
      * Received list of pictures' data.
      */

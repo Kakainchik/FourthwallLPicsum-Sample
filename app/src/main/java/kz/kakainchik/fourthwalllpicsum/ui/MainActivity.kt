@@ -1,4 +1,4 @@
-package kz.kakainchik.fourthwalllpicsum
+package kz.kakainchik.fourthwalllpicsum.ui
 
 import android.app.Activity
 import android.content.Context
@@ -16,25 +16,30 @@ import androidx.paging.LoadState
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.progressindicator.LinearProgressIndicator
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import kz.kakainchik.fourthwalllpicsum.R
 import kz.kakainchik.fourthwalllpicsum.entities.Picture
-import kz.kakainchik.fourthwalllpicsum.models.MainActivityViewModel
-import kz.kakainchik.fourthwalllpicsum.models.PicsAdapter
+import kz.kakainchik.fourthwalllpicsum.ui.viewmodel.MainActivityViewModel
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private val model by viewModels<MainActivityViewModel>()
-    private val adapter = PicsAdapter { pic -> adapterOnClick(pic) }
+    private var adapter = PicsAdapter { pic -> adapterOnClick(pic) }
 
     /**
      * Event handler on [PictureActivity] response.
      */
-    private val openPictureCallback: ActivityResultLauncher<Picture> = registerForActivityResult(OpenPictureActivityContract()) {
+    private val openPictureCallback: ActivityResultLauncher<Picture> = registerForActivityResult(
+        OpenPictureActivityContract()
+    ) {
 
     }
 
-    private lateinit var picsList: RecyclerView
-    private lateinit var progressIndicator: LinearProgressIndicator
+    lateinit var picsList: RecyclerView
+    lateinit var progressIndicator: LinearProgressIndicator
 
     override fun onCreate(savedInstanceState: Bundle?) {
         //Change splash screen into main one
