@@ -1,4 +1,4 @@
-package kz.kakainchik.fourthwalllpicsum
+package kz.kakainchik.fourthwalllpicsum.ui
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -19,6 +19,8 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.google.android.material.button.MaterialButton
+import dagger.hilt.android.scopes.ActivityScoped
+import kz.kakainchik.fourthwalllpicsum.R
 import kz.kakainchik.fourthwalllpicsum.entities.Picture
 import java.io.File
 import java.io.FileOutputStream
@@ -28,6 +30,7 @@ import java.util.*
 /**
  * The screen with larger view of an image and its details.
  */
+@ActivityScoped
 class PictureActivity : AppCompatActivity() {
     private lateinit var imageContainer: ImageView
     private lateinit var shareButton: MaterialButton

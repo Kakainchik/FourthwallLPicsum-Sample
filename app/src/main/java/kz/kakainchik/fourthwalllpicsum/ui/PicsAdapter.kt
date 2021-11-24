@@ -1,4 +1,4 @@
-package kz.kakainchik.fourthwalllpicsum.models
+package kz.kakainchik.fourthwalllpicsum.ui
 
 import android.view.LayoutInflater
 import android.view.View
@@ -10,16 +10,18 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import kz.kakainchik.fourthwalllpicsum.R
 import kz.kakainchik.fourthwalllpicsum.entities.Picture
+import kz.kakainchik.fourthwalllpicsum.models.HOSTNAME
+import javax.inject.Inject
 
 /**
  * RecyclerView adapter implementing the list of [Picture]. Supports pagination.
  */
-class PicsAdapter(private val onItemClick: (Picture) -> Unit) :
+class PicsAdapter @Inject constructor(private val onItemClick: (Picture) -> Unit) :
     PagingDataAdapter<Picture, PicsAdapter.ViewHolder>(PictureDiffCallback) {
 
     class ViewHolder(view: View, onItemClick: (Picture) -> Unit) : RecyclerView.ViewHolder(view) {
         //Thought about storing this url as a format string but Glide has own implementation
-        private val smallImageUrlPath = "${HOSTNAME}/200?image="
+        private val smallImageUrlPath = "$HOSTNAME/200?image="
 
         private val image: ImageView = view.findViewById(R.id.pic_item_image)
 
